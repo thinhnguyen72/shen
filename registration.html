@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="registrationApp">
+
+<head>
+  <title>Registration</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div ng-controller="RegistrationController" class="container">
+    <h2>Registration</h2>
+    <form name="registrationForm" novalidate>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" ng-model="user.username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" ng-model="user.password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="repeatPassword">Repeat Password:</label>
+        <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" placeholder="Repeat Password" required ng-pattern="user.password">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" ng-model="user.email" placeholder="Enter Email" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary" ng-disabled="registrationForm.$invalid" ng-click="submitForm()">Submit</button>
+      <button type="button" class="btn btn-default" ng-click="cancelForm()">Cancel</button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</body>
+
+</html>
